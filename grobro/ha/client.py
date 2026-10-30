@@ -1157,6 +1157,7 @@ class Client:
             _device_label(device_id),
         )
         self._publish_discovery_message(topic, "", retain=True)  # force HA to refresh
+        time.sleep(2)
         result = self._publish_discovery_message(topic, payload_str, retain=True)
         if not publish_succeeded(result):
             return
